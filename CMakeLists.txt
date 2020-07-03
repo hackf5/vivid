@@ -13,15 +13,15 @@ add_compile_definitions( VIVID_ROOT_PATH="${VIVID_DIR}/")
 # make sure that custom modules are found
 list( INSERT CMAKE_MODULE_PATH 0 ${VIVID_DIR}/cmake )
 
-find_package( nlohmann_json REQUIRED )
-find_package( glm REQUIRED )
+# find_package( nlohmann_json REQUIRED )
+# find_package( glm REQUIRED )
 # add_subdirectory( dependencies/json )
 # add_subdirectory( dependencies/glm )
 
-message( STATUS "nlohmann-json included" )
-message( STATUS "glm included" )
+# message( STATUS "nlohmann-json included" )
+# message( STATUS "glm included" )
 
-add_library( vivid SHARED
+add_library(vivid 
     src/adobe.cpp
     src/color.cpp
     src/colormap.cpp
@@ -67,7 +67,7 @@ target_include_directories( vivid
 target_link_libraries( vivid
     PUBLIC
         nlohmann_json::nlohmann_json
-        glm
+        # glm
 )
 
 install(
@@ -82,5 +82,5 @@ export( TARGETS vivid FILE vividConfig.cmake)
 #  examples and tests
 ################################################################################
 
-add_subdirectory( examples/cmake )
-add_subdirectory( tests )
+# add_subdirectory( examples/cmake )
+# add_subdirectory( tests )
